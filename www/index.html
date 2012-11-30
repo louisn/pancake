@@ -84,6 +84,28 @@
             </div>
             <div id="vacantSpot" class="clearRight" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
+		<!-- START script -->
+        <script>
+            function allowDrop(ev)
+            {
+            ev.preventDefault();
+            }
+
+            function drag(ev)
+            {
+            ev.dataTransfer.setData("Text",ev.target.id);
+            }
+
+            function drop(ev)
+            {
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+            alert(ev.target.innerHTML);
+            <!-- this doesnt work yet, --> $("ev.target:gt(this).innerHTML").css("border", "4px solid red");
+            }
+        </script>
+        <!-- END script -->
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
