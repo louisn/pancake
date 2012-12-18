@@ -28,13 +28,29 @@ var app = {
         // So, we must explicitly called `app.report()` instead of `this.report()`.
         app.report('deviceready');
         document.addEventListener("menuButton", this.onMenuPress, false);
-        setMenuHandlers();
+        this.setMenuHandlers();
     },
     report: function(id) {
         // Report the event in the console
         console.log("Report: " + id);
     }
     onMenuPress: function(){
-    	alert("onMenuPress");
+    	document.alert("onMenuPress");
+    	// TODO add the menu display code here
     }
+    setMenuHandlers: function {
+      $('#exit').on('touchstart', function() {
+        navigator.app.exitApp();
+      });
+      $('#hello').on('touchend', function() {
+        alert('Hello!');
+      });
+      $('#closeMenu').on('touchend', function() {
+        onMenuPress();
+      });
+      $('#menuToggle').on('touchend', function() {
+        onMenuPress();
+      });
+    }
+}
 };
