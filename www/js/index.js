@@ -27,8 +27,8 @@ var app = {
         // This is an event handler function, which means the scope is the event.
         // So, we must explicitly called `app.report()` instead of `this.report()`.
         app.report('deviceready');
-        document.addEventListener("menuButton", this.onMenuPress, false);
-        this.setMenuHandlers();
+        document.addEventListener("menuButton", app.onMenuPress, false);
+        app.setMenuHandlers();
     },
     report: function(id) {
         // Report the event in the console
@@ -36,19 +36,19 @@ var app = {
     }
     onMenuPress: function(){
     	document.alert("onMenuPress");
-    	// TODO add the menu display code here
+    	// TODO add the menu display and hide code here
     }
     setMenuHandlers: function {
-      $('#exit').on('touchstart', function() {
+      $('#exit').on("touchstart", function() {
         navigator.app.exitApp();
       });
-      $('#hello').on('touchend', function() {
+      $('#hello').on("touchend", function() {
         alert('Hello!');
       });
-      $('#closeMenu').on('touchend', function() {
+      $('#closeMenu').on("touchend", function() {
         onMenuPress();
       });
-      $('#menuToggle').on('touchend', function() {
+      $('#menuToggle').on("touchend", function() {
         onMenuPress();
       });
     }
