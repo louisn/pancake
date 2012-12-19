@@ -35,7 +35,7 @@ var app = {
         console.log("Report: " + id);
     }
     onMenuPress: function(){
-    	document.alert("onMenuPress");
+    	alert("onMenuPress");
     	// TODO add the menu display and hide code here
     }
     setMenuHandlers: function {
